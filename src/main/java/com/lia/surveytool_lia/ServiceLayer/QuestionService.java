@@ -24,4 +24,8 @@ public class QuestionService {
     question.setSurvey(survey);
     return questionRepository.save(question);
   }
+
+  public void deleteQuestion(Long questionId){
+    questionRepository.deleteById(questionId);
+  }
 }

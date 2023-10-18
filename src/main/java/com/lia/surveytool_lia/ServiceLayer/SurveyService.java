@@ -18,6 +18,10 @@ public class SurveyService {
     return surveyRepository.save(survey);
   }
 
+  public void deleteSurvey(Long surveyId){
+    surveyRepository.deleteById(surveyId);
+  }
+
   public List<Survey> getAllSurveys() {
     return surveyRepository.findAll();
   }
