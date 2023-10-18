@@ -1,10 +1,9 @@
-package ServiceLayer;
+package com.lia.surveytool_lia.ServiceLayer;
 
-import Model.Survey;
-import Repositories.SurveyRepository;
+import com.lia.surveytool_lia.Model.Survey;
+import com.lia.surveytool_lia.Repositories.SurveyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 
 @Service
@@ -12,7 +11,10 @@ public class SurveyService {
   @Autowired
   private SurveyRepository surveyRepository;
 
-  public Survey createSurvey(Survey survey){
+
+  public Survey createSurvey(String title) {
+    Survey survey = new Survey();
+    survey.setTitle(title);
     return surveyRepository.save(survey);
   }
 
@@ -20,7 +22,4 @@ public class SurveyService {
     return surveyRepository.findAll();
   }
 
-  public Survey findSurveyById(Long surveyId) {
-    return surveyRepository.findById(surveyId).orElse(null);
-  }
 }

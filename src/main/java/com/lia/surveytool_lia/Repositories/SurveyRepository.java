@@ -1,6 +1,6 @@
-package Repositories;
+package com.lia.surveytool_lia.Repositories;
 
-import Model.Survey;
+import com.lia.surveytool_lia.Model.Survey;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface SurveyRepository extends JpaRepository<Survey, Long> {
