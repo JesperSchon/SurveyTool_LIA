@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skapa Enkät</title>
+
+    <!-- Lägg till Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Lägg till JavaScript i slutet av body -->
+</head>
+
+<body>
+<div class="container mt-5">
+    <h2>Skapa en ny enkät</h2>
+
+    <div class="form-group">
+        <label for="surveyName">Enkätnamn:</label>
+        <input type="text" class="form-control" id="surveyName" placeholder="Ange enkätnamn">
+    </div>
+
+    <button type="button" class="btn btn-primary" onclick="createSurvey()">Skapa Enkät</button>
+</div>
+
+
+<div class="container mt-5">
+    <h2>Enkäter</h2>
+    <div id="surveyList"></div>
+</div>
+
+<!-- Modal för att lägga till en fråga -->
+<div class="modal fade" id="addQuestionModal" tabindex="-1" aria-labelledby="addQuestionModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addQuestionModalLabel">Lägg till en fråga</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Stäng"></button>
+            </div>
+            <div class="modal-body">
+                <div class="mb-3">
+                    <label for="questionText" class="form-label">Frågetext:</label>
+                    <input type="text" class="form-control" id="questionText">
+                </div>
+                <div class="mb-3">
+                    <label for="questionType" class="form-label">Frågetyp:</label>
+                    <select class="form-select" id="questionType">
+                        <option value="SINGLE_CHOICE">Enkel val</option>
+                        <option value="MULTIPLE_CHOICE">Flera val</option>
+                        <option value="TEXT">Text</option>
+                        <option value="CHECKBOX">Kryssruta</option>
+                    </select>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Stäng</button>
+                <button type="button" class="btn btn-primary" id="saveQuestionBtn">Spara fråga</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Lägg till Bootstrap JS och vår egen JS-fil -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="script.js"></script> <!-- Här kopplar vi in vår egen JS-fil -->
+
+</body>
+
+</html>
+
