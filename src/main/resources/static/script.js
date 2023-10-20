@@ -9,7 +9,7 @@ function createSurvey() {
     }
 
     // URL till din backend-tjänst för att skapa en enkät
-    const url = "http://localhost:8080/surveys";
+    const url = "http://localhost:8080/api/surveys/create";
 
     fetch(url, {
         method: "POST",
@@ -17,7 +17,7 @@ function createSurvey() {
             "Content-Type": "application/json"
         },
         body: JSON.stringify({
-            name: surveyName
+            title: surveyName
         })
     })
         .then(response => {
@@ -37,7 +37,7 @@ function createSurvey() {
 
 // Funktion för att hämta alla enkäter och visa dem i en lista
 function fetchSurveys() {
-    const url = "http://localhost:8080/surveys/getAllSurveys";
+    const url = "http://localhost:8080/api/surveys";
 
     fetch(url)
         .then(response => {

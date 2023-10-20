@@ -1,6 +1,5 @@
 package com.lia.surveytool_lia.Model;
 
-
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -23,5 +22,5 @@ public class Survey {
 
   @OneToMany(mappedBy = "survey", cascade = CascadeType.ALL)
   @JsonManagedReference
-  private List<Question> questions = new ArrayList<>();
+  private List<BaseQuestion> questions = new ArrayList<>();
 }

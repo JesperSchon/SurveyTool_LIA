@@ -10,23 +10,45 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/surveys")
+@RequestMapping("/api/surveys")
 public class SurveyController {
 
+  private final SurveyService surveyService;
+
   @Autowired
-  private SurveyService surveyService;
+  public SurveyController(SurveyService surveyService) {
+    this.surveyService = surveyService;
+  }
 
-
-  @PostMapping
-  public ResponseEntity<Survey> createSurvey(@RequestBody String title) {
-    Survey createdSurvey = surveyService.createSurvey(title);
+  @PostMapping("/create")
+  public ResponseEntity<Survey> createSurvey(@RequestBody Survey survey) {
+    Survey createdSurvey = surveyService.createSurvey(survey);
     return new ResponseEntity<>(createdSurvey, HttpStatus.CREATED);
   }
 
-  @GetMapping("/getAllSurveys")
+  @GetMapping
   public ResponseEntity<List<Survey>> getAllSurveys() {
     List<Survey> surveys = surveyService.getAllSurveys();
-    return new ResponseEntity<>(surveys, HttpStatus.OK);
+    return ResponseEntity.ok(surveys);
+  }
+
+  @GetMapping("/{id}")
+  public ResponseEntity<Survey> getSurveyById(@PathVariable Long id) {
+    Survey survey = surveyService.getSurveyById(id);
+    return ResponseEntity.ok(survey);
+  }
+
+  @PutMapping("/update/{id}")
+  public ResponseEntity<Survey> updateSurvey(@PathVariable Long id, @RequestBody Survey updatedSurvey) {
+    Survey survey = surveyService.updateSurvey(id, updatedSurvey);
+    return ResponseEntity.ok(survey);
+  }
+
+  @DeleteMapping("/delete/{id}")
+  public ResponseEntity<Void> deleteSurvey(@PathVariable Long id) {
+    surveyService.deleteSurvey(id);
+    return ResponseEntity.noContent().build();
   }
 }
+
 
