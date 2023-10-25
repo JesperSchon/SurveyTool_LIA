@@ -1,18 +1,16 @@
-package com.lia.surveytool_lia.Controller;
+package com.lia.surveytool_lia.controller;
 
-import com.lia.surveytool_lia.Model.Choice;
-import com.lia.surveytool_lia.ServiceLayer.ChoiceService;
+import com.lia.surveytool_lia.model.Choice;
+import com.lia.surveytool_lia.servicelayer.ChoiceService;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/choices")
+@CrossOrigin(origins = "http://localhost:3000")
 public class ChoiceController {
 
   private final ChoiceService choiceService;
@@ -22,8 +20,8 @@ public class ChoiceController {
     this.choiceService = choiceService;
   }
 
-  @PostMapping("/create")
-  public ResponseEntity<Choice> createChoice(@RequestParam Long questionId, @RequestParam String choiceText) {
+  @PostMapping("/create/{questionId}")
+  public ResponseEntity<Choice> createChoice(@PathVariable Long questionId, @RequestBody String choiceText) {
     try {
       Choice createdChoice = choiceService.addChoice(questionId, choiceText);
       return new ResponseEntity<>(createdChoice, HttpStatus.CREATED);
@@ -33,7 +31,5 @@ public class ChoiceController {
       return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
   }
-
-  // Här kan du lägga till fler metoder för att uppdatera, ta bort och hämta val om det behövs.
 }
 

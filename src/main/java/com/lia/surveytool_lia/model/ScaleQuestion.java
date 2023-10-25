@@ -1,6 +1,5 @@
-package com.lia.surveytool_lia.Model;
+package com.lia.surveytool_lia.model;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
 import lombok.AllArgsConstructor;
@@ -15,5 +14,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = false)
 public class ScaleQuestion extends BaseQuestion {
-  private int scale;
+  private int minChoices;
+  private int maxChoices;
 }

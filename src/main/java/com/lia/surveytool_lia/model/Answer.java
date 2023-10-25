@@ -1,4 +1,4 @@
-package com.lia.surveytool_lia.Model;
+package com.lia.surveytool_lia.model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

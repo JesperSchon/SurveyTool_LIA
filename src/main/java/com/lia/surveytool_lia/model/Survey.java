@@ -1,4 +1,4 @@
-package com.lia.surveytool_lia.Model;
+package com.lia.surveytool_lia.model;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;

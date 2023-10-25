@@ -1,10 +1,10 @@
-package com.lia.surveytool_lia.Controller;
+package com.lia.surveytool_lia.controller;
 
-import com.lia.surveytool_lia.Model.BaseQuestion;
-import com.lia.surveytool_lia.Model.ChoiceQuestion;
-import com.lia.surveytool_lia.Model.ScaleQuestion;
-import com.lia.surveytool_lia.Model.TextQuestion;
-import com.lia.surveytool_lia.ServiceLayer.QuestionService;
+import com.lia.surveytool_lia.model.BaseQuestion;
+import com.lia.surveytool_lia.model.ChoiceQuestion;
+import com.lia.surveytool_lia.model.ScaleQuestion;
+import com.lia.surveytool_lia.model.TextQuestion;
+import com.lia.surveytool_lia.servicelayer.QuestionService;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -15,6 +15,7 @@ import java.util.List;
 
   @RestController
   @RequestMapping("/api/questions")
+  @CrossOrigin(origins = "http://localhost:3000")
   public class QuestionController {
 
     private final QuestionService questionService;

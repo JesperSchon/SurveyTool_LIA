@@ -1,10 +1,10 @@
-package com.lia.surveytool_lia.ServiceLayer;
+package com.lia.surveytool_lia.servicelayer;
 
-import com.lia.surveytool_lia.Model.BaseQuestion;
-import com.lia.surveytool_lia.Model.Choice;
-import com.lia.surveytool_lia.Model.ChoiceQuestion;
-import com.lia.surveytool_lia.Repositories.BaseQuestionRepository;
-import com.lia.surveytool_lia.Repositories.ChoiceRepository;
+import com.lia.surveytool_lia.model.BaseQuestion;
+import com.lia.surveytool_lia.model.Choice;
+import com.lia.surveytool_lia.model.ChoiceQuestion;
+import com.lia.surveytool_lia.repositories.BaseQuestionRepository;
+import com.lia.surveytool_lia.repositories.ChoiceRepository;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

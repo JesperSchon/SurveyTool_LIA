@@ -24,7 +24,6 @@ repositories {
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     //implementation("org.springframework.boot:spring-boot-starter-security")
-    //implementation("org.springframework.boot:spring-boot-starter-thymeleaf")
     implementation("org.springframework.boot:spring-boot-starter-web")
     //implementation("org.thymeleaf.extras:thymeleaf-extras-springsecurity6")
     compileOnly("org.projectlombok:lombok")
@@ -33,6 +32,8 @@ dependencies {
     runtimeOnly("com.mysql:mysql-connector-j")
     annotationProcessor("org.projectlombok:lombok")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
+    testImplementation ("org.junit.jupiter:junit-jupiter-api:5.7.0")
+    testImplementation ("org.junit.jupiter:junit-jupiter-engine:5.7.0")
     //testImplementation("org.springframework.security:spring-security-test")
 }
 
